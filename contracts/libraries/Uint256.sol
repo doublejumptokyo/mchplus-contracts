@@ -32,13 +32,13 @@ library Uint256 {
         return a % b;
     }
 
-    function toAscii(uint256 a) internal pure returns (string memory) {
+    function toString(uint256 a) internal pure returns (string memory) {
         bytes32 retBytes32;
         uint256 len = 0;
         if (a == 0) {
             retBytes32 = "0";
+            len++;
         } else {
-
             uint256 value = a;
             while (value > 0) {
                 retBytes32 = bytes32(uint256(retBytes32) / (2 ** 8));

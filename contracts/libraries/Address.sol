@@ -8,7 +8,7 @@ library Address {
         return size > 0;
     }
 
-    function toAscii(address account) internal pure returns (string memory) {
+    function toHex(address account) internal pure returns (string memory) {
         bytes32 value = bytes32(uint256(account));
         bytes memory alphabet = "0123456789abcdef";
 

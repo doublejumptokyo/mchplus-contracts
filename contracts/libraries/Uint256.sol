@@ -5,7 +5,7 @@ library Uint256 {
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a + b;
         require(c >= a, "addition overflow");
-        return 0;
+        return c;
     }
 
     function sub(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -28,7 +28,7 @@ library Uint256 {
     }
 
     function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b != 0, "division by 0");
+        require(b != 0, "modulo by 0");
         return a % b;
     }
 

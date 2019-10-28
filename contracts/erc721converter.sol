@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
 import "./IERC721.sol";
-import "./OperatorRole.sol";
-import "./lib/github.com/OpenZeppelin/openzeppelin-solidity-2.3.0/contracts/token/ERC721/ERC721Holder.sol";
+import "./roles/OperatorRole.sol";
+import "./lib/github.com/OpenZeppelin/openzeppelin-contracts-2.3.0/contracts/token/ERC721/ERC721Holder.sol";
 
 contract ERC721Converter is ERC721Holder, OperatorRole {
   ERC721 Alice;

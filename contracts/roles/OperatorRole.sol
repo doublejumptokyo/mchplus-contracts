@@ -1,10 +1,8 @@
 pragma solidity ^0.5.0;
 
-import "./lib/github.com/OpenZeppelin/openzeppelin-solidity-2.3.0/contracts/ownership/Ownable.sol";
-import "./lib/github.com/OpenZeppelin/openzeppelin-solidity-2.3.0/contracts/access/Roles.sol";
+import "./Roles.sol";
 
-
-contract OperatorRole is Ownable {
+contract OperatorRole {
   using Roles for Roles.Role;
 
   event OperatorAdded(address indexed account);
@@ -41,12 +39,12 @@ contract OperatorRole is Ownable {
     return operators.has(account);
   }
 
-  function addOperator(address account) public onlyOwner() {
+  function addOperator(address account) public onlyOperator() {
     operators.add(account);
     emit OperatorAdded(account);
   }
 
-  function removeOperator(address account) public onlyOwner() {
+  function removeOperator(address account) public onlyOperator() {
     operators.remove(account);
     emit OperatorRemoved(account);
   }
@@ -60,7 +58,7 @@ contract OperatorRole is Ownable {
     emit Paused(msg.sender);
   }
 
-  function unpause() public onlyOperator whenPaused() {
+  function unpause() public onlyOperator() whenPaused() {
     _paused = false;
     emit Unpaused(msg.sender);
   }

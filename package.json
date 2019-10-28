@@ -1,0 +1,23 @@
+{
+  "name": "mchplus-contracts",
+  "version": "0.0.1",
+  "description": "本リポジトリは、[MCH+](https://www.mch.plus)がオープンソースとして提供するSmart Contractのソースコードです。",
+  "main": "index.js",
+  "dependencies": {
+    "remixd": "^0.1.8-alpha.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doublejumptokyo/mchplus-contracts.git"
+  },
+  "author": "double jump.tokyo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doublejumptokyo/mchplus-contracts/issues"
+  },
+  "homepage": "https://github.com/doublejumptokyo/mchplus-contracts#readme"
+}

@@ -1,10 +1,8 @@
 pragma solidity ^0.5.0;
 
 import "mchplus-contracts/roles/Roles.sol";
-import "mchplus-contracts/libraries/Address.sol";
 
-contract OperatorRole {
-    using Address for address;
+contract Operatable {
     using Roles for Roles.Role;
 
     event OperatorAdded(address indexed account);
@@ -14,7 +12,6 @@ contract OperatorRole {
     event Unpaused(address account);
 
     bool private _paused;
-
     Roles.Role private operators;
 
     constructor() public {
@@ -64,7 +61,7 @@ contract OperatorRole {
         _paused = false;
         emit Unpaused(msg.sender);
     }
-    
+
     function withdrawEther() public onlyOperator() {
         msg.sender.transfer(address(this).balance);
     }

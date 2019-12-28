@@ -1,11 +1,11 @@
 pragma solidity ^0.5.0;
 
-import "mchplus-contracts/libraries/Uint256.sol";
-import "mchplus-contracts/libraries/Address.sol";
+import "../libraries/Uint256.sol";
+import "../libraries/Address.sol";
 
-import "mchplus-contracts/interfaces/IERC721.sol";
-import "mchplus-contracts/interfaces/IERC721TokenReceiver.sol";
-import "mchplus-contracts/erc/ERC165.sol";
+import "../interfaces/IERC721.sol";
+import "../interfaces/IERC721TokenReceiver.sol";
+import "./ERC165.sol";
 
 contract ERC721 is IERC721, ERC165 {
     using Uint256 for uint256;
@@ -81,6 +81,10 @@ contract ERC721 is IERC721, ERC165 {
     }
 
     function isApprovedForAll(address _owner, address _operator) public view returns (bool) {
+        return _isApprovedForAll(_owner, _operator);
+    }
+    
+    function _isApprovedForAll(address _owner, address _operator) internal view returns (bool) {
         return _operatorApprovals[_owner][_operator];
     }
 

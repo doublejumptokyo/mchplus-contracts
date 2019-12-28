@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import "mchplus-contracts/erc/ERC721.sol";
-import "mchplus-contracts/roles/Operatable.sol";
+import "./ERC721.sol";
+import "../roles/Operatable.sol";
 
 interface IERC721Mintable {
     event MinterAdded(address indexed account);
@@ -38,7 +38,7 @@ contract ERC721Mintable is ERC721, IERC721Mintable, Operatable {
         emit MinterRemoved(account);
     }
 
-    function mint(address to, uint256 tokenId) public {
+    function mint(address to, uint256 tokenId) public onlyMinter() {
         _mint(to, tokenId);
     }
 }

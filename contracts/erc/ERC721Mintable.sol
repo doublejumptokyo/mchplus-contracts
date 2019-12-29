@@ -6,7 +6,9 @@ import "../roles/Operatable.sol";
 interface IERC721Mintable {
     event MinterAdded(address indexed account);
     event MinterRemoved(address indexed account);
+    function exist(uint256 _tokenId) external view returns (bool);
     function mint(address _to, uint256 _tokenId) external;
+    function isMinter(address account) external view returns (bool);
     function addMinter(address account) external;
     function removeMinter(address account) external;
 }
@@ -36,6 +38,10 @@ contract ERC721Mintable is ERC721, IERC721Mintable, Operatable {
     function removeMinter(address account) public onlyOperator() {
         minters.remove(account);
         emit MinterRemoved(account);
+    }
+    
+    function exist(uint256 tokenId) public view returns (bool) {
+        return _exist(tokenId);
     }
 
     function mint(address to, uint256 tokenId) public onlyMinter() {

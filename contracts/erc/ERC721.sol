@@ -45,7 +45,7 @@ contract ERC721 is IERC721, ERC165 {
     }
 
     function transferFrom(address _from, address _to, uint256 _tokenId) public payable {
-        require(_transferable(_from, _tokenId),
+        require(_transferable(msg.sender, _tokenId),
                 "Unless `msg.sender` is the current owner, an authorized operator, or the approved address for this NFT.");
         require(ownerOf(_tokenId) == _from,
                 "`_from` is not the current owner.");

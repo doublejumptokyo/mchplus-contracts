@@ -46,7 +46,7 @@ contract ERC721 is IERC721, ERC165 {
 
     function transferFrom(address _from, address _to, uint256 _tokenId) public payable {
         require(_transferable(msg.sender, _tokenId),
-                "Unless `msg.sender` is the current owner, an authorized operator, or the approved address for this NFT.");
+                "Unless `msg.sender` is the current owner, an authorized operator, or the approved address for this NFT."); // solhint-disable-line
         require(ownerOf(_tokenId) == _from,
                 "`_from` is not the current owner.");
         require(_to != address(0),
@@ -122,7 +122,15 @@ contract ERC721 is IERC721, ERC165 {
         return owner != address(0);
     }
 
-    function _checkOnERC721Received(address _from, address _to, uint256 _tokenId, bytes memory _data) internal returns (bool) {
+    function _checkOnERC721Received(
+        address _from,
+        address _to,
+        uint256 _tokenId,
+        bytes memory _data
+    ) 
+        internal
+        returns (bool) 
+    {
         if (!_to.isContract()) {
             return true;
         }

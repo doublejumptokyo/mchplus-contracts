@@ -40,7 +40,16 @@ contract ERC721Helper is Operatable, ERC721Holder, SupportedIERC721 {
         return target.ownerOf(_tokenId);
     }
 
-    function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes memory data) public payable onlyOperator() {
+    function safeTransferFrom(
+        address _from,
+        address _to,
+        uint256 _tokenId,
+        bytes memory data
+    )
+        public
+        payable
+        onlyOperator()
+    {
         return target.safeTransferFrom(_from, _to, _tokenId, data);
     }
 
@@ -48,7 +57,14 @@ contract ERC721Helper is Operatable, ERC721Holder, SupportedIERC721 {
         return target.safeTransferFrom(_from, _to, _tokenId);
     }
     
-    function bulkSafeTransferFrom(address[] calldata _froms, address[] calldata _tos, uint256[] calldata _tokenIds) external onlyOperator() {
+    function bulkSafeTransferFrom(
+        address[] calldata _froms,
+        address[] calldata _tos,
+        uint256[] calldata _tokenIds
+    )
+        external
+        onlyOperator()
+    {
         require(_tokenIds.length == _froms.length && _tokenIds.length == _tos.length);
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             safeTransferFrom(_froms[i], _tos[i], _tokenIds[i]);
@@ -59,7 +75,14 @@ contract ERC721Helper is Operatable, ERC721Holder, SupportedIERC721 {
         return target.transferFrom(_from, _to, _tokenId);
     }
 
-    function bulktransferFrom(address[] calldata _froms, address[] calldata _tos, uint256[] calldata _tokenIds) external onlyOperator() {
+    function bulktransferFrom(
+        address[] calldata _froms,
+        address[] calldata _tos,
+        uint256[] calldata _tokenIds
+    )
+        external
+        onlyOperator()
+    {
         require(_tokenIds.length == _froms.length && _tokenIds.length == _tos.length);
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             transferFrom(_froms[i], _tos[i], _tokenIds[i]);

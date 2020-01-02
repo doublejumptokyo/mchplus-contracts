@@ -7,6 +7,8 @@ import "../interfaces/IERC721.sol";
 import "../interfaces/IERC721TokenReceiver.sol";
 import "./ERC165.sol";
 
+/// @title ERC721 Non-Fungible Token Standard basic implementation
+/// @dev see https://eips.ethereum.org/EIPS/eip-721
 contract ERC721 is IERC721, ERC165 {
     using Uint256 for uint256;
     using Address for address;

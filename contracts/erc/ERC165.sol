@@ -4,6 +4,8 @@ interface IERC165 {
     function supportsInterface(bytes4 interfaceID) external view returns (bool);
 }
 
+/// @title ERC-165 Standard Interface Detection
+/// @dev See https://eips.ethereum.org/EIPS/eip-165
 contract ERC165 is IERC165 {
     bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
     mapping(bytes4 => bool) private _supportedInterfaces;

@@ -6,10 +6,12 @@ library Roles {
     }
 
     function add(Role storage role, address account) internal {
+        require(!has(role, account), "role already has the account");
         role.bearer[account] = true;
     }
 
     function remove(Role storage role, address account) internal {
+        require(has(role, account), "role dosen't have the account");
         role.bearer[account] = false;
     }
 

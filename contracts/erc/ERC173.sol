@@ -23,7 +23,7 @@ contract ERC173 is IERC173, ERC165  {
 
     constructor() public {
         _registerInterface(0x7f5828d0);
-        transferOwnership(msg.sender);
+        _transferOwnership(msg.sender);
     }
 
     modifier onlyOwner() {

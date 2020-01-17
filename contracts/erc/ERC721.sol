@@ -70,7 +70,7 @@ contract ERC721 is IERC721, ERC165 {
     function setApprovalForAll(address _operator, bool _approved) public {
         _setApprovalForAll(msg.sender, _operator, _approved);
     }
-    
+
     function _setApprovalForAll(address _owner, address _operator, bool _approved) internal {
         _operatorApprovals[_owner][_operator] = _approved;
         emit ApprovalForAll(_owner, _operator, _approved);

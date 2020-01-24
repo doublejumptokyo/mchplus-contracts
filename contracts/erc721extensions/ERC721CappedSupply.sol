@@ -20,7 +20,7 @@ interface IERC721CappedSupply /* IERC721Mintable, IERC721 */ {
 
 /// @title ERC-721 Capped Supply
 /// @author double jump.tokyo inc.
-/// @dev see https://medium.com/@makzent/ca1008866871
+/// @dev see https://medium.com/@makzent/the-2x2-matrix-for-blockchain-game-ecosystems-2645be502704
 contract ERC721CappedSupply is IERC721CappedSupply, ERC721Mintable {
     using Uint256 for uint256;
     using Uint32 for uint32;

@@ -67,8 +67,4 @@ contract Operatable is ERC173 {
         emit Unpaused(msg.sender);
     }
 
-    function withdrawEther() public onlyOperator() {
-        msg.sender.transfer(address(this).balance);
-    }
-
 }
